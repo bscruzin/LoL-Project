@@ -50,7 +50,7 @@ Since this project is mostly concerned on team level outcomes, I filtered out pl
 
 The steps for cleaning our dataset ensured that the analyzation and modeling was focused on team level outcomes. That the data types were consistent and had correct analysis. It freed any irrelevant columns or any that didn’t have enough data. After cleaning the data, the dataset contained 25,098 rows with each representing a team in a professional match. 
 
-![Head of Cleaned DataFrame](Team_data-1.png)
+'| gameid                | side   | firstbaron   |   result |   golddiffat10 |   dragons |   barons |\n|:----------------------|:-------|:-------------|---------:|---------------:|----------:|---------:|\n| ESPORTSTMNT01_2690210 | Blue   | False        |        0 |           1523 |         1 |        0 |\n| ESPORTSTMNT01_2690210 | Red    | False        |        1 |          -1523 |         3 |        0 |\n| ESPORTSTMNT01_2690219 | Blue   | False        |        0 |          -1619 |         1 |        0 |\n| ESPORTSTMNT01_2690219 | Red    | True         |        1 |           1619 |         4 |        2 |\n| 8401-8401_game_1      | Blue   | True         |        1 |            nan |         2 |        1 |'
 
 ### Exploratory Data Analysis - Univariate Analysis
 
