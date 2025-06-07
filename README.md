@@ -1,6 +1,6 @@
-# Analyzing and Predicting First Baron in League of Legends
+### Analyzing and Predicting First Baron in League of Legends
 
-# Introduction
+## Introduction
 
 This project analyzes data from professional League of Legends (LoL) matches, sourced from Oracles Elixir and being the 2022 match dataset. In the dataset is a summary of information to gain an understanding of how a player behaves, team interaction, and match outcomes for individual matches. The central question this project asks is: Does securing the first Baron in a match increases a team likelihood of winning? Why focus on this question is because the Baron Nashor seems to be one of the most impactful neutral objectives in League of Legends. Whichever team that secures the Baron first seems to have gain an advantage over the other team. Using out dataset, is this advantage reflected in higher win rates? If we can understand the relationship between securing first Baron and win rates, then this can possibly help players, coaches or fans of League of Legends to better evaluate game strategies and decisions around the Baron. This project also builds a predictive model to answer a related question: Can we predict whether a team will secure the first Baron base on early game statistics? Hopefully both of these questions will give insight into how players performance early in the match correlates with game objectives later in the match. 
 
@@ -56,35 +56,69 @@ The steps for cleaning our dataset ensured that the analyzation and modeling was
 
 This bar chart shows the distribution of First Baron Control. Teams that secured the first Baron were slightly more common, but both outcomes seem to occur commonly. It shows whether out target variable, being “firstbaron”, is balanced in our data because if one of the bars is very tall, then our predictive model could be biased. This balanced distribution is important for the predictive model, because it can learn meaningful patterns than being biased towards one outcome. 
 
-![First Baron Distribution](<Baron plot-1.png>)
+<iframe
+  src="assets/first_baron_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 This histogram shows the distribution of Gold Difference at 10 Minutes across all matches. We can see that majority of games early on are close, which makes sense with the gold differences being clustered around zero. It appears though that there are some matches where teams gain early leads or deficits. This shows that while many games are balanced early, sometimes substantial gold advantages can happen and may impact the likelihood of controlling later game objectives such as the Baron.
 
-![Gold Difference at 10 Minutes](<Gold difference-1.png>)
+<iframe
+  src="assets/gold_difference.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Exploratory Data Analysis - Bivariate Analysis
-(Paste paragraph for Gold Diff vs Match Result — embed plot here.)
 
 This box plot shows the relationship between Gold difference at 10 minutes and Match result. Winning teams (1) seem to have a higher gold advantage at 10 minutes, while the losing teams (0) have a neutral or negative difference. This could mean that securing an early gold advantage correlates well with winning the match.
 
-![Gold Diff vs Match Result](gold-1.png)
+<iframe
+  src="assets/gold_difference.html"  <!-- this depends if you saved this as gold_diff_vs_result.html -->
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 This box plot shows the relationship between number of dragons secured and match result. From the plot, it seems to suggest that winning teams consistently secured more dragons than losing teams. This supports the importance of objective control for attaining victory. Controlling dragons might likely contribute to power spikes and dominating the map, helping those teams win the match.
 
-![Dragons vs Match Result](<dragons -1.png>)
+<iframe
+  src="assets/dragons_vs_match_result.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 This box plot examines the relationship between First Baron Control and Game Length. The median game length between whether or not a team secured the first baron looks to be similar around 1800 seconds. This could mean that while the baron is a valuable objective, securing doesn’t always lead to longer matches. Sometimes it might help accelerate a win, or could be secured defensively in longer matches.
 
-![Game Length by First Baron](<baron -1.png>)
+<iframe
+  src="assets/game_length_by_first_baron.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 This pivot table shows the average game statistics when grouped by whether the team secured the first Baron and whether if they won the match or not. Some of the trends that are revealed from this table shows that teams that have won the game generally secure more dragons, more team kills, and more barons than losing teams. Teams that also secure the first Baron and won the game had the highest average Barons secured (1.25) and a good average in team kills (19.55) and dragons (3.01). The most interesting trend seems to be that teams that secured the first Baron but still lost the game performed better than teams that lost without securing the first Baron. This seems to indicate that that while securing the first Baron help in the game, it doesn’t mean securing victory. These trends seem to reinforce that while the first Baron control is correlated with better performances of playing the objective and team kills, winning the match means converting these advantages into victories. 
 
-![Pivot Table](<Pivot-1.png>)
+<iframe
+  src="assets/pivot_table.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Missingness Dependency
 In this dataset, I think the column “golddiffat10” is an example of Not Missing At Random (NMAR). The column tells us how much more or less gold a team had compared to their opponent at 10 minutes. But sometimes this value is missing. Likely because some games didn’t even last 10 minutes, because either the game ended early with a surrender, or there was a technical problem. This means the missing values aren’t random, they just might happen often in games that went badly for one team. So, whether this value is missing depends on what was happening in the game. The missing data is connected to the outcome of the game itself. If we had more information, like whether the game ended early or why, then we might be able to call it Missing At Random (MAR) instead, but with the data we have, this appears to be NMAR.
 
-![Missingness Dependency Histogram](Missing-1.png)
+<iframe
+  src="assets/missingness_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 To check if missing values in “golddiffat10” are connected to other parts of the data, I ran permutation tests. First, I tested whether missing “golddiffat10” depends on how long the game was. The test showed a very small p-value (0.0), meaning the missing values are clearly connected to game length. This means that short games are much more likely to have this value missing, which makes sense because short games may not reach 10 minutes.
 
@@ -104,7 +138,12 @@ I used a permutation test to compare the win rate of teams that secured first Ba
 
 Since the p-value is zero than our signicance level, I reject the null hypothesis. This means there is statistically significant evidence that securing the first Baron is associated with a higher chance of winning the match. While the result might suggest a strong relationship between first Baron and winning, we can’t say with certainty that the Baron causes a team to win. It may also reflect that stronger teams are both more likely to get Baron and to win.
 
-![Hypothesis Test Histogram](Hypothesis-1.png)
+<iframe
+  src="assets/hypothesis_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Framing a Prediction Problem
 For this project, I wanted to predict whether a team will get the first Baron during a match. This is a binary classification problem, so the model predicts either True (team gets first Baron) or False (team does not).
@@ -136,6 +175,11 @@ Alternative hypothesis: The model’s precision is different for Blue side and R
 I used a permutation test to compare the precision of the model for Blue side and Red side teams. The test statistic I chose is the difference in precision between Blue and Red sides. The signicance level being 0.05. The observed precision for Red was 0.6614 and the observed precision for Blue was 0.6445. The observed difference was 0.0169 and the p-value is 0.5430. Since the p-value is larger than our significance level (p = 0.5430 > 0.05), I fail to reject the null hypothesis.
 Which means there is no significant evidence that the model treats Blue side and Red side teams unfairly with respect to precision. 
 
-![Permutation Test: Precision Difference](<Permutation-1.png>)
+<iframe
+  src="assets/fairness_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 The plot above shows the permutation test results. The red dashed line shows the observed precision difference. Since this value is near the middle of the random distribution, we see that the observed difference is not statistically unusual.
