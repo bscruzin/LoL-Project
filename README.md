@@ -59,7 +59,7 @@ This bar chart shows the distribution of First Baron Control. Teams that secured
 <iframe
   src="assets/first_baron_distribution.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -68,7 +68,7 @@ This histogram shows the distribution of Gold Difference at 10 Minutes across al
 <iframe
   src="assets/gold_difference.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -77,7 +77,7 @@ This histogram shows the distribution of Gold Difference at 10 Minutes across al
 This box plot shows the relationship between Gold difference at 10 minutes and Match result. Winning teams (1) seem to have a higher gold advantage at 10 minutes, while the losing teams (0) have a neutral or negative difference. This could mean that securing an early gold advantage correlates well with winning the match.
 
 <iframe
-  src="assets/gold_difference.html"  <!-- this depends if you saved this as gold_diff_vs_result.html -->
+  src="assets/gold_diff_vs_result.html"
   width="800"
   height="600"
   frameborder="0"
@@ -86,7 +86,7 @@ This box plot shows the relationship between Gold difference at 10 minutes and M
 This box plot shows the relationship between number of dragons secured and match result. From the plot, it seems to suggest that winning teams consistently secured more dragons than losing teams. This supports the importance of objective control for attaining victory. Controlling dragons might likely contribute to power spikes and dominating the map, helping those teams win the match.
 
 <iframe
-  src="assets/dragons_vs_match_result.html"
+  src="assets/dragons_vs_result.html"
   width="800"
   height="600"
   frameborder="0"
@@ -95,7 +95,7 @@ This box plot shows the relationship between number of dragons secured and match
 This box plot examines the relationship between First Baron Control and Game Length. The median game length between whether or not a team secured the first baron looks to be similar around 1800 seconds. This could mean that while the baron is a valuable objective, securing doesn’t always lead to longer matches. Sometimes it might help accelerate a win, or could be secured defensively in longer matches.
 
 <iframe
-  src="assets/game_length_by_first_baron.html"
+  src="assets/gamelength_by_firstbaron.html"
   width="800"
   height="600"
   frameborder="0"
@@ -106,7 +106,7 @@ This pivot table shows the average game statistics when grouped by whether the t
 <iframe
   src="assets/pivot_table.html"
   width="800"
-  height="600"
+  height="300"
   frameborder="0"
 ></iframe>
 
@@ -114,7 +114,7 @@ This pivot table shows the average game statistics when grouped by whether the t
 In this dataset, I think the column “golddiffat10” is an example of Not Missing At Random (NMAR). The column tells us how much more or less gold a team had compared to their opponent at 10 minutes. But sometimes this value is missing. Likely because some games didn’t even last 10 minutes, because either the game ended early with a surrender, or there was a technical problem. This means the missing values aren’t random, they just might happen often in games that went badly for one team. So, whether this value is missing depends on what was happening in the game. The missing data is connected to the outcome of the game itself. If we had more information, like whether the game ended early or why, then we might be able to call it Missing At Random (MAR) instead, but with the data we have, this appears to be NMAR.
 
 <iframe
-  src="assets/missingness_test.html"
+  src="assets/missingness_dependency.html"
   width="800"
   height="600"
   frameborder="0"
@@ -176,7 +176,7 @@ I used a permutation test to compare the precision of the model for Blue side an
 Which means there is no significant evidence that the model treats Blue side and Red side teams unfairly with respect to precision. 
 
 <iframe
-  src="assets/fairness_test.html"
+  src="assets/fairness_precision_test.html"
   width="800"
   height="600"
   frameborder="0"
