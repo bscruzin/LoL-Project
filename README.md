@@ -50,7 +50,66 @@ Since this project is mostly concerned on team level outcomes, I filtered out pl
 
 The steps for cleaning our dataset ensured that the analyzation and modeling was focused on team level outcomes. That the data types were consistent and had correct analysis. It freed any irrelevant columns or any that didn’t have enough data. After cleaning the data, the dataset contained 25,098 rows with each representing a team in a professional match. 
 
-'| gameid                | side   | firstbaron   |   result |   golddiffat10 |   dragons |   barons |\n|:----------------------|:-------|:-------------|---------:|---------------:|----------:|---------:|\n| ESPORTSTMNT01_2690210 | Blue   | False        |        0 |           1523 |         1 |        0 |\n| ESPORTSTMNT01_2690210 | Red    | False        |        1 |          -1523 |         3 |        0 |\n| ESPORTSTMNT01_2690219 | Blue   | False        |        0 |          -1619 |         1 |        0 |\n| ESPORTSTMNT01_2690219 | Red    | True         |        1 |           1619 |         4 |        2 |\n| 8401-8401_game_1      | Blue   | True         |        1 |            nan |         2 |        1 |'
+<table>
+  <thead>
+    <tr>
+      <th>gameid</th>
+      <th>side</th>
+      <th>firstbaron</th>
+      <th>result</th>
+      <th>golddiffat10</th>
+      <th>dragons</th>
+      <th>barons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ESPORTSTMNT01_2690210</td>
+      <td>Blue</td>
+      <td>False</td>
+      <td>0</td>
+      <td>1523</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ESPORTSTMNT01_2690210</td>
+      <td>Red</td>
+      <td>False</td>
+      <td>1</td>
+      <td>-1523</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ESPORTSTMNT01_2690219</td>
+      <td>Blue</td>
+      <td>False</td>
+      <td>0</td>
+      <td>-1619</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ESPORTSTMNT01_2690219</td>
+      <td>Red</td>
+      <td>True</td>
+      <td>1</td>
+      <td>1619</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>8401-8401_game_1</td>
+      <td>Blue</td>
+      <td>True</td>
+      <td>1</td>
+      <td>nan</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Exploratory Data Analysis - Univariate Analysis
 
