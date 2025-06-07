@@ -79,7 +79,7 @@ This box plot examines the relationship between First Baron Control and Game Len
 
 This pivot table shows the average game statistics when grouped by whether the team secured the first Baron and whether if they won the match or not. Some of the trends that are revealed from this table shows that teams that have won the game generally secure more dragons, more team kills, and more barons than losing teams. Teams that also secure the first Baron and won the game had the highest average Barons secured (1.25) and a good average in team kills (19.55) and dragons (3.01). The most interesting trend seems to be that teams that secured the first Baron but still lost the game performed better than teams that lost without securing the first Baron. This seems to indicate that that while securing the first Baron help in the game, it doesn’t mean securing victory. These trends seem to reinforce that while the first Baron control is correlated with better performances of playing the objective and team kills, winning the match means converting these advantages into victories. 
 
-![Pivot Table](<Screenshot 2025-06-06 at 11.41.35 PM-1.png>)
+![Pivot Table](<Pivot-1.png>)
 
 ## Missingness Dependency
 In this dataset, I think the column “golddiffat10” is an example of Not Missing At Random (NMAR). The column tells us how much more or less gold a team had compared to their opponent at 10 minutes. But sometimes this value is missing. Likely because some games didn’t even last 10 minutes, because either the game ended early with a surrender, or there was a technical problem. This means the missing values aren’t random, they just might happen often in games that went badly for one team. So, whether this value is missing depends on what was happening in the game. The missing data is connected to the outcome of the game itself. If we had more information, like whether the game ended early or why, then we might be able to call it Missing At Random (MAR) instead, but with the data we have, this appears to be NMAR.
@@ -136,6 +136,6 @@ Alternative hypothesis: The model’s precision is different for Blue side and R
 I used a permutation test to compare the precision of the model for Blue side and Red side teams. The test statistic I chose is the difference in precision between Blue and Red sides. The signicance level being 0.05. The observed precision for Red was 0.6614 and the observed precision for Blue was 0.6445. The observed difference was 0.0169 and the p-value is 0.5430. Since the p-value is larger than our significance level (p = 0.5430 > 0.05), I fail to reject the null hypothesis.
 Which means there is no significant evidence that the model treats Blue side and Red side teams unfairly with respect to precision. 
 
-![Permutation Test: Precision Difference](<Screenshot 2025-06-06 at 11.48.17 PM-1.png>)
+![Permutation Test: Precision Difference](<Permutation-1.png>)
 
 The plot above shows the permutation test results. The red dashed line shows the observed precision difference. Since this value is near the middle of the random distribution, we see that the observed difference is not statistically unusual.
